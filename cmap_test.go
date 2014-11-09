@@ -2,8 +2,8 @@ package cmap
 
 import (
 	. "github.com/karlseguin/expect"
-	"testing"
 	"strconv"
+	"testing"
 )
 
 type CMapTests struct{}
@@ -23,13 +23,13 @@ func (_ *CMapTests) GetsAndSetsAndDeletesValues() {
 	}
 
 	for i := 0; i < 1000; i++ {
-		if 1 & i == 0 {
+		if 1&i == 0 {
 			c.Delete(strconv.Itoa(i))
 		}
 	}
 
 	for i := 0; i < 1000; i++ {
-		if 1 & i == 0 {
+		if 1&i == 0 {
 			Expect(c.Get(strconv.Itoa(i))).To.Equal(nil, false)
 		} else {
 			Expect(c.Get(strconv.Itoa(i))).To.Equal(i, true)
@@ -62,7 +62,7 @@ func (_ *CMapTests) Len() {
 	Expect(c.Len()).To.Equal(1000)
 
 	for i := 0; i < 1000; i++ {
-		if 1 & i == 0 {
+		if 1&i == 0 {
 			c.Delete(strconv.Itoa(i))
 		}
 	}
